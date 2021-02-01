@@ -9,6 +9,7 @@ export default class Donate extends Component {
         age: '',
         bloodGroup: '',
         contact: '',
+        location: ''
     }
 
     donate = () => {
@@ -19,6 +20,7 @@ export default class Donate extends Component {
                 age: this.state.age,
                 bloodGroup: this.state.bloodGroup,
                 contact: this.state.contact,
+                location: this.state.location,
             })
             .then(this.props.navigationProp.navigate('Donors'))
     }
@@ -30,9 +32,9 @@ export default class Donate extends Component {
                 <Text style={styles.donorH}>Become a Donor</Text>
                 <Content>
                     <Form style={{ padding: 10 }}>
-                        <Item fixedLabel>
+                        <Item fixedLabel >
                             <Label>Full Name</Label>
-                            <Input onChangeText={text => this.setState({
+                            <Input autoCapitalize={'sentences'} onChangeText={text => this.setState({
                                 name: text
                             })} />
                         </Item>
@@ -54,8 +56,14 @@ export default class Donate extends Component {
                                 contact: text
                             })} keyboardType={'numeric'} />
                         </Item>
+                        <Item fixedLabel>
+                            <Label>Location</Label>
+                            <Input onChangeText={text => this.setState({
+                                location: text
+                            })} />
+                        </Item>
                     </Form>
-                    <Button onPress={() => this.donate()} full style={{ backgroundColor: '#d6004e', marginTop: 15, marginHorizontal: 10 }}>
+                    <Button onPress={() => this.donate()} full style={styles.donorB}>
                         <Text>Donate</Text>
                     </Button>
                 </Content>
@@ -68,6 +76,12 @@ var styles = StyleSheet.create({
     donorH: {
         marginLeft: 20,
         marginTop: 10,
-        fontSize: 22
+        fontSize: 22,
+        color: '#DE1F26'
+    },
+    donorB: {
+        backgroundColor: '#DE1F26',
+        marginTop: 15,
+        marginHorizontal: 10
     }
 })

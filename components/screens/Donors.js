@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import database from '@react-native-firebase/database';
-import { Spinner, Content, Card, CardItem, Body, Container } from 'native-base';
+import { Container, Spinner } from 'native-base'; //, Content, Card, CardItem, Body
 
 export default class DonorLs extends Component {
 
@@ -30,24 +30,16 @@ export default class DonorLs extends Component {
 
     list = () => {
         const { donors, isData } = this.state;
-        console.log(donors);
+        // console.log(donors);
         return (
             isData ? donors.map((donor, id) => {
                 return (
-                    // <Container key={id}>
-                    //     <Content padder>
-                    //         <Card transparent>
-                    //             <CardItem>
-                    //                 <Body>
-                    //                     <Text>{donor.name}</Text>
-                    //                 </Body>
-                    //             </CardItem>
-                    //         </Card>
-                    //     </Content>
-                    // </Container>
-
-                    <View style={{ margin: 10 }} key={id}>
-                        <Text style={{ width:100 }}>{donor.name} </Text>
+                    <View style={styles.cardView} key={id}>
+                        <Text>{donor.name} </Text>
+                        <Text>{donor.age}</Text>
+                        <Text>{donor.bloodGroup}</Text>
+                        <Text>{donor.contact}</Text>
+                        <Text>{donor.location}</Text>
                     </View>
                 );
             })
@@ -59,8 +51,27 @@ export default class DonorLs extends Component {
     };
 
     render() {
-        return <View style={{ justifyContent: 'center', alignItems: 'center', flexDirection: "column" }}>
-            <Text>{this.list()}</Text>
-        </View>;
+        return (
+            <Container>
+                <View style={{ justifyContent: 'center', alignItems: 'center', flexDirection: "column" }}>
+                    <Text style={styles.heading}>Find A Donor</Text>
+                    <Text>{this.list()}</Text>
+                </View>
+            </Container>
+        );
     }
 }
+
+var styles = StyleSheet.create({
+    heading: {
+        fontSize: 35,
+        color: '#DE1F26'
+    },
+    cardView: {
+        width: 300,
+        padding: 15,
+        margin: 15,
+        borderBottomColor: '#DE1F26',
+        borderBottomWidth: 2,
+    },
+})

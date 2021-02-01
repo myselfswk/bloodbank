@@ -1,0 +1,74 @@
+from ActionSignIn.js
+
+                {/* <View style={styles.checkBox}>
+                        <CheckBox
+                            title="Remember me"
+                            checkedColor="yellow"
+                            uncheckedColor="#DE1F26"
+                            checked={this.state.checked}
+                            textStyle={{ color: '#DE1F26' }}
+                            containerStyle={{
+                                width: 200,
+                                backgroundColor: 'rgba(0,0,0,0)',
+                                borderColor: 'rgba(0,0,0,0)'
+                            }}
+                            onPress={() => {
+                                this.setState({
+                                    checked: !this.state.checked
+                                });
+                            }}
+                        />
+                    </View> */}
+
+
+from Donors.js
+
+                    // <Container key={id}>
+                    //     <Content padder>
+                    //         <Card transparent>
+                    //             <CardItem>
+                    //                 <Body>
+                    //                     <Text>{donor.name}</Text>
+                    //                 </Body>
+                    //             </CardItem>
+                    //         </Card>
+                    //     </Content>
+                    // </Container>
+
+from ActionSignUp.js
+
+                    // if (error.code === 'auth/email-already-in-use') {
+                    //     console.log('That email address is already in use!');
+                    // }
+
+                    // if (error.code === 'auth/invalid-email') {
+                    //     console.log('That email address is invalid!');
+                    // }
+
+from profile.js
+
+        {/* <View style={styles.formContent}>
+          <View style={styles.inputContainer}>
+            <Image style={[styles.icon, styles.inputIcon]} source={{uri: 'https://png.icons8.com/search/androidL/100/000000'}}/>
+            <TextInput style={styles.inputs}
+              ref={'txtSearch'}
+              placeholder="Search"
+              underlineColorAndroid='transparent'
+              onChangeText={(name_address) => this.setState({name_address})}/>
+          </View>
+        </View> */}
+
+// {id:2, color:"#87CEEB", icon:"https://bootdey.com/img/Content/avatar/avatar2.png", name: "User 2", tags:['tag 1', 'tag 2', 'tag 3', 'Dey-Dey', 'Developer']}, 
+        // {id:3, color:"#4682B4", icon:"https://bootdey.com/img/Content/avatar/avatar3.png", name: "User 3", tags:['tag 1', 'tag 2', 'tag 3']}, 
+        // {id:4, color:"#6A5ACD", icon:"https://bootdey.com/img/Content/avatar/avatar4.png", name: "User 4", tags:['tag 1', 'tag 2', 'tag 3']}, 
+        // {id:5, color:"#FF69B4", icon:"https://bootdey.com/img/Content/avatar/avatar5.png", name: "User 5", tags:['tag 1', 'tag 2', 'tag 3']}, 
+        // {id:6, color:"#00BFFF", icon:"https://bootdey.com/img/Content/avatar/avatar6.png", name: "User 6", tags:['tag 1', 'tag 2', 'tag 3']}, 
+        // {id:7, color:"#00FFFF", icon:"https://bootdey.com/img/Content/avatar/avatar1.png", name: "User 7", tags:['tag 1', 'tag 2', 'tag 3']}, 
+        // {id:8, color:"#20B2AA", icon:"https://bootdey.com/img/Content/avatar/avatar2.png", name: "User 8", tags:['tag 1', 'tag 2', 'tag 3']},
+        // {id:9, color:"#191970", icon:"https://bootdey.com/img/Content/avatar/avatar3.png", name: "User 9", tags:['tag 1', 'tag 2', 'tag 3']},
+
+        
+        // {id:2,  name: "Housing",    image:"https://img.icons8.com/color/100/000000/real-estate.png",       count:234.722},
+        // {id:3,  name: "Jobs",       image:"https://img.icons8.com/color/100/000000/find-matching-job.png", count:324.723} ,
+        // {id:4,  name: "Personal",   image:"https://img.icons8.com/clouds/100/000000/employee-card.png",    count:154.573} ,
+        // {id:5,  name: "For sale",   image:"https://img.icons8.com/color/100/000000/land-sales.png",        count:124.678} ,

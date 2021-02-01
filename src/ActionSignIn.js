@@ -78,25 +78,6 @@ export default class ActionSignIn extends React.Component {
                 </View>
 
                 <View style={styles.bottom}>
-                    <View style={styles.checkBox}>
-                        <CheckBox
-                            title="Remember me"
-                            checkedColor="yellow"
-                            uncheckedColor="#DE1F26"
-                            checked={this.state.checked}
-                            textStyle={{ color: '#DE1F26' }}
-                            containerStyle={{
-                                width: 200,
-                                backgroundColor: 'rgba(0,0,0,0)',
-                                borderColor: 'rgba(0,0,0,0)'
-                            }}
-                            onPress={() => {
-                                this.setState({
-                                    checked: !this.state.checked
-                                });
-                            }}
-                        />
-                    </View>
                     <View style={styles.button_container}>
                         <View>
                             <TouchableOpacity style={styles.button} onPress={() => this.signInFunc()}>
