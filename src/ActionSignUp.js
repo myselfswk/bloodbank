@@ -14,6 +14,7 @@ import auth from '@react-native-firebase/auth';
 export default class ActionSignUp extends React.Component {
     state = {
         checked: true,
+        name: '',
         email: '',
         password: ''
     }
@@ -27,6 +28,8 @@ export default class ActionSignUp extends React.Component {
     signupFunc = () => {
         if (this.state.email === "" || this.state.email === " " || this.state.email === undefined) {
             alert("email can't be empty!")
+        } else if (this.state.name === "" || this.state.name === " " || this.state.name === undefined) {
+            alert("Name can't be empty!")
         } else if (this.state.password === "" || this.state.password === " " || this.state.password === undefined) {
             alert("passwod can't be empty!")
         } else {
@@ -39,6 +42,7 @@ export default class ActionSignUp extends React.Component {
                         .ref('/users')
                         .push({
                             email: this.state.email,
+                            name: this.state.name,
                             password: this.state.password
                         })
                         .then((res) => console.log(res))
@@ -60,6 +64,21 @@ export default class ActionSignUp extends React.Component {
                     </View>
                     <View style={styles.input}>
                         <TextInput
+                            placeholder="Your Name..."
+                            style={styles.textInput}
+                            autoCapitalize='sentences'
+                            onChangeText={text => this.setState({
+                                name: text
+                            })}
+                        />
+                    </View>
+                </View>
+
+                <View style={styles.section}>
+                    <View style={styles.icon}>
+                    </View>
+                    <View style={styles.input}>
+                        <TextInput
                             placeholder="Your Email..."
                             style={styles.textInput}
                             autoCapitalize='none'
@@ -70,9 +89,7 @@ export default class ActionSignUp extends React.Component {
                     </View>
                 </View>
 
-                <View style={[styles.section, {
-                    marginTop: 15
-                }]}>
+                <View style={styles.section}>
                     <View style={styles.icon}>
                     </View>
                     <View style={styles.input}>

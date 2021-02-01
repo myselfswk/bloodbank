@@ -54,7 +54,7 @@ export default class App extends React.Component{
                         borderTopLeftRadius:width/2/2,
                         borderBottomLeftRadius:width/2/2
                       }]}>
-                          <Text>Login</Text>
+                          <Text style={styles.tabText}>Login</Text>
                       </TouchableOpacity>
 
                       <TouchableOpacity
@@ -64,7 +64,7 @@ export default class App extends React.Component{
                         borderTopRightRadius:width/2/2,
                         borderBottomRightRadius:width/2/2
                       }]}>
-                          <Text>SignUp</Text>
+                          <Text style={styles.tabText}>SignUp</Text>
                       </TouchableOpacity>
                   </View>
               </View>
@@ -87,13 +87,10 @@ var styles = StyleSheet.create({
     backgroundColor:'#fff', //EC6848
   },
   header: {
-    flex:1.5,
-    paddingHorizontal:20
+    flex: 1,
   },
   logo: {
-    flex:1,
-    width:'100%',
-    height:'100%',
+    flex:1, 
   },
   tabbar: {
     position:'absolute',
@@ -102,6 +99,9 @@ var styles = StyleSheet.create({
     height:40,
     justifyContent:'center',
     alignItems:'center'
+  },
+  tabText: {
+    fontSize:20
   },
   box: {
     width:width/2,

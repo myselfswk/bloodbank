@@ -22,7 +22,10 @@ export default class Donate extends Component {
                 contact: this.state.contact,
                 location: this.state.location,
             })
-            .then(this.props.navigationProp.navigate('Donors'))
+            .then(() => {
+                alert('Your Info has been collected')
+                this.props.navigation.navigate('Donors')
+            });
     }
 
 
