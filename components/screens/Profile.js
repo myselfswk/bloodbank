@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { StyleSheet } from "react-native";
 import { Container, Content, Card, CardItem, Body, Text } from 'native-base';
 
 export default class CardExample extends Component {
@@ -9,8 +10,8 @@ export default class CardExample extends Component {
           <Card>
             <CardItem>
               <Body>
-                <Text>
-                   //Your text here
+                <Text style={styles.profileH}>
+                  Profile:-
                 </Text>
               </Body>
             </CardItem>
@@ -20,3 +21,10 @@ export default class CardExample extends Component {
     );
   }
 }
+
+var styles = StyleSheet.create({
+  profileH: {
+    fontSize: 35,
+    color: '#DE1F26'
+  },
+})
