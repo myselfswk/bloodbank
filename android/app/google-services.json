@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "671249934527",
+    "firebase_url": "https://bloodbankapp-reactnative-default-rtdb.firebaseio.com",
+    "project_id": "bloodbankapp-reactnative",
+    "storage_bucket": "bloodbankapp-reactnative.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:671249934527:android:5961905687fbfeefef3e0a",
+        "android_client_info": {
+          "package_name": "com.bloodbank"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "671249934527-mjr912l04gpasp3uln15492tc027a80v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9yyxddzbGSS7RJj0zFzvrliCyuiJ0GSk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "671249934527-mjr912l04gpasp3uln15492tc027a80v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
