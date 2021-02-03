@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import database from '@react-native-firebase/database';
 import { Container, Spinner } from 'native-base'; //, Content, Card, CardItem, Body
 
-export default class DonorLs extends Component {
+export default class Donors extends Component {
 
     state = {
         donors: [],

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { StyleSheet } from "react-native";
 import { Container, Content, Card, CardItem, Text, Body } from 'native-base';
 export default class AboutUs extends Component {
   render() {
@@ -7,7 +8,7 @@ export default class AboutUs extends Component {
         <Content>
           <Card>
             <CardItem header>
-              <Text>Blood Bank App</Text>
+              <Text style={styles.AboutUsH}>Blood Bank App</Text>
             </CardItem>
             <CardItem>
               <Body>
@@ -22,7 +23,7 @@ export default class AboutUs extends Component {
               </Body>
             </CardItem>
             <CardItem footer>
-              <Text>Muhammad Waleed Khan</Text>
+              <Text style={styles.AboutUsF}>By, Muhammad Waleed Khan</Text>
             </CardItem>
          </Card>
         </Content>
@@ -30,3 +31,14 @@ export default class AboutUs extends Component {
     );
   }
 }
+
+var styles = StyleSheet.create({
+  AboutUsH: {
+    color: '#DE1F26',
+    fontSize: 30
+  },
+  AboutUsF: {
+    color: '#DE1F26',
+    fontSize: 20
+  },
+})

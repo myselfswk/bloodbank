@@ -79,3 +79,9 @@ for app.js from src
     // height:'100%',
 
     // paddingHorizontal:20
+
+from profile.js
+
+          {/* <Text style={styles.profileD}>Blood Group:</Text> */}
+        // console.log(users, users.name, users.email, isData);
+        //, ...this.state.users

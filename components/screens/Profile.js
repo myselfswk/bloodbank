@@ -1,20 +1,64 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Button } from "react-native";
 import auth from '@react-native-firebase/auth';
+import database from '@react-native-firebase/database';
 
 export default class Profile extends React.Component {
 
-  signOut = () => {
+  constructor(props) {
+    super(props);
+  }
+  state = {
+    users: [],
+    isData: false,
+  }
+
+
+
+  signOutFunc = () => {
     auth()
       .signOut()
       .then(() => {
         alert('User signed out!')
-        this.props.navigationProp.navigate('Login')
+        setTimeout(() => {
+          this.props.navigation.navigate('Login');
+      }, 2000);
       });
   }
 
-  render() {
+  componentDidMount() {
+    database()
+      .ref('users')
+      .on('value', (data) => {
+        setTimeout(() => {
+          for (var key in data.val()) {
+            this.setState({
+              users: data.val()[key],
+            })
+          }
+          this.setState({
+            isData: true
+          })
+        }, 2000);
+      })
+    console.log(this.props);
+  }
 
+  details = () => {
+    const { users, isData } = this.state;
+
+    return (
+      isData ?
+        <View>
+          <Text style={styles.profileD}>Name: {users.name}</Text>
+          <Text style={styles.profileD}>Email: {users.email}</Text>
+          <Text style={styles.profileD}>Password: {users.password}</Text>
+        </View>
+        : null
+    )
+  }
+
+  render() {
     return (
       <View>
         <Text style={styles.profileH}>Profile</Text>
@@ -25,18 +69,21 @@ export default class Profile extends React.Component {
           />
         </View>
         <View>
-          <Text style={styles.profileD}>Name:</Text>
-          <Text style={styles.profileD}>Email:</Text>
-          <Text style={styles.profileD}>Blood Group:</Text>
-          <Text style={styles.profileD}>Password:</Text>
+          <Text>{this.details()}</Text>
         </View>
-        <View>
+        <View style={styles.btnView}>
           <Button
             color='#DE1F26'
             title="Sign Out"
-            onPress={() => this.signOut()}
+            onPress={() => this.signOutFunc()}
           />
         </View>
+        {/* <View style={styles.btnView}>
+          <Button
+            color='#DE1F26'
+            title="Update"
+          />
+        </View> */}
       </View>
     );
   }
@@ -70,5 +117,12 @@ var styles = StyleSheet.create({
     fontSize: 20,
     borderColor: '#DE1F26',
     borderBottomWidth: 1,
+  },
+  btnView: {
+    flexDirection: 'row',
+    padding: 2,
+    margin: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 })
