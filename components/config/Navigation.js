@@ -19,13 +19,13 @@ function Navigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Splash" component={Splash} options={{headerShown: null}} />
         <Stack.Screen name="Login" component={Login} options={{headerShown: null}} />
+        <Stack.Screen name="Splash" component={Splash} options={{headerShown: null}} />
         <Stack.Screen name="Dashboard" component={Dashboard} options={{headerShown: null}} />
         <Stack.Screen name="ASI" component={ActionSignIn} />
         <Stack.Screen name="ASU" component={ActionSignUp} />
-        <Stack.Screen name="App" component={App} />
         <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="App" component={App} />
         <Stack.Screen name="AboutUs" component={AboutUs} />
         <Stack.Screen name="Donate" component={Donate} />
         <Stack.Screen name="Donors" component={Donors} />

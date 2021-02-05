@@ -5,54 +5,56 @@ import database from '@react-native-firebase/database';
 
 export default class Profile extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
   state = {
-    users: [],
+    user: {},
     isData: false,
+    loggedInUser: {},
   }
-
-
 
   signOutFunc = () => {
     auth()
       .signOut()
       .then(() => {
         alert('User signed out!')
-        setTimeout(() => {
-          this.props.navigation.navigate('Login');
-      }, 2000);
+        this.props.navigation.navigate('Login');
       });
   }
 
+
   componentDidMount() {
-    database()
-      .ref('users')
-      .on('value', (data) => {
-        setTimeout(() => {
+    // console.log('Props')
+    // console.log(this.props.navigation)
+    auth().onAuthStateChanged((user) => {
+      // console.log(user);
+      if (user) {
+        database().ref('users').once('value', (data) => {
           for (var key in data.val()) {
-            this.setState({
-              users: data.val()[key],
-            })
+            if (data.val()[key].email === user.email) {
+              setTimeout(() => {
+                this.setState({
+                  loggedInUser: data.val()[key],
+                  isData: true
+                })
+                console.log(data.val()[key]);
+              }, 1000);
+              // console.log(this.state.loggedInUser)
+            }
           }
-          this.setState({
-            isData: true
-          })
-        }, 2000);
-      })
-    console.log(this.props);
+        })
+      }
+    })
   }
 
-  details = () => {
-    const { users, isData } = this.state;
 
+  details = () => {
+    const { user, isData, loggedInUser } = this.state;
+    console.log(user)
     return (
       isData ?
         <View>
-          <Text style={styles.profileD}>Name: {users.name}</Text>
-          <Text style={styles.profileD}>Email: {users.email}</Text>
-          <Text style={styles.profileD}>Password: {users.password}</Text>
+          <Text style={styles.profileD}>Name: {loggedInUser.name}</Text>
+          <Text style={styles.profileD}>Email: {loggedInUser.email}</Text>
+          <Text style={styles.profileD}>Password: {loggedInUser.password}</Text>
         </View>
         : null
     )

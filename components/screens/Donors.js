@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, ScrollView } from 'react-native'; //, Alert
 import database from '@react-native-firebase/database';
-import { Container, Spinner } from 'native-base'; //, Content, Card, CardItem, Body
+import { Container, Spinner } from 'native-base'; //, Content, Card, Body , CardItem, Button
 
 export default class Donors extends Component {
 
@@ -37,13 +37,13 @@ export default class Donors extends Component {
                         <Text>Name: {donor.name} </Text>
                         <Text>Age: {donor.age}</Text>
                         <Text>Blood Group: {donor.bloodGroup}</Text>
-                        <Text>Contact: {donor.contact}</Text>
                         <Text>Location: {donor.location}</Text>
+                        <Text>Contact: {donor.contact}</Text>
                     </View>
                 );
             })
                 :
-                (<View style={ styles.donorSpinner }>
+                (<View style={styles.donorSpinner}>
                     <Spinner color='#DE1F26' />
                 </View>)
         );

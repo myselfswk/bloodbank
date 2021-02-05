@@ -35,6 +35,19 @@ from Donors.js
                     //     </Content>
                     // </Container>
 
+                    {/* <View style={{ borderBottomWidth: 1, borderBottomColor: 'grey', paddingBottom: 10 }}>
+                            <CardItem>
+                                <Button onPress={() => { Clipboard.setString(donor.contact); Alert.alert('Text Copied') }} style={{ padding: 10, backgroundColor: 'pink', borderRadius: 5 }}>
+                                    <Text style={{ fontWeight: 'bold' }}>Contact : </Text>
+                                    <Text style={styles.donorText}> {donor.contact}</Text>
+                                </Button>
+                            </CardItem>
+                        </View> */}
+
+                    // donorText: {
+                    //     fontSize: 16,
+                    // },
+
 from ActionSignUp.js
 
                     // if (error.code === 'auth/email-already-in-use') {
