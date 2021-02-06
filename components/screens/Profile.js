@@ -1,7 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Button } from "react-native";
+import {Item, Input} from 'native-base';
 import auth from '@react-native-firebase/auth';
 import database from '@react-native-firebase/database';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default class Profile extends React.Component {
 
@@ -22,24 +24,23 @@ export default class Profile extends React.Component {
 
 
   componentDidMount() {
-    // console.log('Props')
-    // console.log(this.props.navigation)
+
     auth().onAuthStateChanged((user) => {
-      // console.log(user);
       if (user) {
         database().ref('users').once('value', (data) => {
-          for (var key in data.val()) {
-            if (data.val()[key].email === user.email) {
-              setTimeout(() => {
+          console.log(data.val());
+
+          setTimeout(() => {
+            for (var key in data.val()) {
+              if (data.val()[key].email === user.email) {
                 this.setState({
                   loggedInUser: data.val()[key],
                   isData: true
                 })
-                console.log(data.val()[key]);
-              }, 1000);
-              // console.log(this.state.loggedInUser)
+              }
             }
-          }
+          }, 1000);
+
         })
       }
     })
@@ -48,7 +49,7 @@ export default class Profile extends React.Component {
 
   details = () => {
     const { user, isData, loggedInUser } = this.state;
-    console.log(user)
+    // console.log(loggedInUser)
     return (
       isData ?
         <View>
@@ -61,8 +62,9 @@ export default class Profile extends React.Component {
   }
 
   render() {
+    const { isData, loggedInUser } = this.state;
     return (
-      <View>
+      <View style={{width:'100%',alignItems:'center'}}>
         <Text style={styles.profileH}>Profile</Text>
         <View style={styles.container}>
           <Image
@@ -70,15 +72,29 @@ export default class Profile extends React.Component {
             source={require('../../assets/images/DemoProfile.jpg')}
           />
         </View>
-        <View>
-          <Text>{this.details()}</Text>
-        </View>
-        <View style={styles.btnView}>
-          <Button
-            color='#DE1F26'
-            title="Sign Out"
-            onPress={() => this.signOutFunc()}
-          />
+        <View >
+          {isData ?
+            <View style={styles.profileBody}>
+              <Item rounded style={{ marginTop: 20, borderRadius: 10, borderRadius: 15,borderColor: '#DE1F26', borderWidth: 5 }}>
+                <Input style={{ color: 'red', backgroundColor: 'white', fontWeight: 'bold', fontSize: 20 }} value={loggedInUser.name}  />
+              </Item>
+              <Item rounded style={{ marginTop: 20, borderRadius: 10, borderRadius: 15,borderColor: '#DE1F26', borderWidth: 5 }}>
+                <Input style={{ color: 'red', backgroundColor: 'white', fontWeight: 'bold', fontSize: 20 }} value={loggedInUser.email}  />
+              </Item>
+              <Item rounded style={{ marginTop: 20, borderRadius: 10, borderRadius: 15,borderColor: '#DE1F26', borderWidth: 5 }}>
+                <Input style={{ color: 'red', backgroundColor: 'white', fontWeight: 'bold', fontSize: 20 }} value={loggedInUser.password}  />
+              </Item>
+             <TouchableOpacity style={styles.btnView}>
+                <Text style={{color:'#fff',fontWeight:'bold',fontSize:20}}>
+                  SIGN OUT
+                </Text>
+              </TouchableOpacity>
+
+              {/* <Text style={styles.profileD}>Name: {loggedInUser.name}</Text>
+              <Text style={styles.profileD}>Email: {loggedInUser.email}</Text>
+              <Text style={styles.profileD}>Password: {loggedInUser.password}</Text> */}
+            </View>
+            : null}
         </View>
         {/* <View style={styles.btnView}>
           <Button
@@ -93,24 +109,36 @@ export default class Profile extends React.Component {
 
 var styles = StyleSheet.create({
   profileH: {
-    fontSize: 30,
+    fontSize: 35,
     color: '#DE1F26',
     padding: 7,
     margin: 7,
     textAlign: 'center',
+    textTransform: 'uppercase',
+    marginTop: 20,
+    fontWeight:'bold',
+  },
+  profileBody:{
+    width: '80%',
+    alignItems:'center',
   },
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor: '#DE1F26',
-    borderBottomWidth: 5,
-    borderTopWidth: 5,
-    borderRadius: 100
+    // borderColor: '#DE1F26',
+    // borderBottomWidth: 5,
+    // borderTopWidth: 5,
+    // borderRadius: 100
+    marginBottom:20,
   },
   tinyLogo: {
-    width: 150,
-    height: 150,
-    borderRadius: 100
+    width: 100,
+    height: 100,
+    borderRadius: 100,
+    marginTop: 10,
+    marginBottom: 10,
+    borderColor:'#DE1F26',
+    borderWidth:5,
   },
   profileD: {
     color: '#DE1F26',
@@ -121,10 +149,12 @@ var styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   btnView: {
-    flexDirection: 'row',
-    padding: 2,
-    margin: 2,
+    width:'100%',
+    borderRadius:10,
+    padding: 10,
+    marginTop: 20,
+    backgroundColor: '#DE1F26',
     alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'center',
   },
 })

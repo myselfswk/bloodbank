@@ -34,16 +34,16 @@ export default class Dashboard extends Component {
         <StatusBar hidden = {false} backgroundColor = "#DE1F26" translucent = {true}/>
         <Container >
           <Tabs style={styles.tabStatusBar}>
-            <Tab heading={<TabHeading style={styles.tabDashboard}><Text style={styles.tabText}>Donors</Text></TabHeading>}>
+            <Tab tabStyle={false} heading={<TabHeading style={styles.tabDashboard}><Text style={styles.tabText}>Donors</Text></TabHeading>}>
               <Donors />
             </Tab>
-            <Tab heading={<TabHeading style={styles.tabDashboard}><Text style={styles.tabText}>Donate</Text></TabHeading>}>
+            <Tab tabStyle={false} heading={<TabHeading style={styles.tabDashboard}><Text style={styles.tabText}>Donate</Text></TabHeading>}>
               <Donate />
             </Tab>
-            <Tab heading={<TabHeading style={styles.tabDashboard}><Text style={styles.tabText}>About US</Text></TabHeading>}>
+            <Tab tabStyle={false} heading={<TabHeading style={styles.tabDashboard}><Text style={styles.tabText}>About US</Text></TabHeading>}>
               <AboutUs />
             </Tab>
-            <Tab heading={<TabHeading style={styles.tabDashboard}><Text style={styles.tabText}>Profile</Text></TabHeading>}>
+            <Tab tabStyle={{shadowColor:'grey'}} heading={<TabHeading style={styles.tabDashboard}><Text style={styles.tabText}>Profile</Text></TabHeading>}>
               <Profile />
             </Tab>
           </Tabs>

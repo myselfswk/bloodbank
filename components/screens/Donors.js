@@ -34,7 +34,10 @@ export default class Donors extends Component {
             isData ? donors.map((donor, id) => {
                 return (
                     <View style={styles.cardView} key={id}>
-                        <Text>Name: {donor.name} </Text>
+                        <View style={{ flexDirection: 'row' }}>
+                            <Text style={{fontWeight: '700'}}>Name: </Text>
+                            <Text>{donor.name} </Text>
+                        </View>
                         <Text>Age: {donor.age}</Text>
                         <Text>Blood Group: {donor.bloodGroup}</Text>
                         <Text>Location: {donor.location}</Text>
