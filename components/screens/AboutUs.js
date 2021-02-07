@@ -12,7 +12,7 @@ export default class AboutUs extends Component {
             </CardItem>
             <CardItem>
               <Body>
-                <Text>
+                <Text style={styles.bodyText}>
                 Blood banking refers to the process of collecting, separating, and storing blood. The first U.S. blood bank was established
                 in 1936. Today, blood banks collect blood and separate it into its various components so they can be used most effectively
                 according to the needs of the patient. Red blood cells carry oxygen, platelets help the blood clot, and plasma has specific
@@ -35,10 +35,21 @@ export default class AboutUs extends Component {
 var styles = StyleSheet.create({
   AboutUsH: {
     color: '#DE1F26',
-    fontSize: 30
+    fontSize: 32,
+    fontWeight:'700',
+    width:'100%',
+    textAlign:'center',
+    textTransform:'uppercase',
+  },
+  bodyText:{
+    fontSize:16.5,
   },
   AboutUsF: {
     color: '#DE1F26',
-    fontSize: 20
+    fontSize: 20,
+    fontWeight:'700',
+    width:'100%',
+    textAlign:'center',
+    textTransform:'uppercase',
   },
 })

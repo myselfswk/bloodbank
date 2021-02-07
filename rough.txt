@@ -48,6 +48,11 @@ from Donors.js
                     //     fontSize: 16,
                     // },
 
+                    {/* <Text>Age: {donor.age}</Text>
+                        <Text>Blood Group: {donor.bloodGroup}</Text>
+                        <Text>Location: {donor.location}</Text>
+                        <Text>Contact: {donor.contact}</Text> */}
+
 from ActionSignUp.js
 
                     // if (error.code === 'auth/email-already-in-use') {
@@ -85,6 +90,24 @@ from profile.js
         // {id:3,  name: "Jobs",       image:"https://img.icons8.com/color/100/000000/find-matching-job.png", count:324.723} ,
         // {id:4,  name: "Personal",   image:"https://img.icons8.com/clouds/100/000000/employee-card.png",    count:154.573} ,
         // {id:5,  name: "For sale",   image:"https://img.icons8.com/color/100/000000/land-sales.png",        count:124.678} ,
+
+        
+              {/* <Text style={styles.profileD}>Name: {loggedInUser.name}</Text>
+              <Text style={styles.profileD}>Email: {loggedInUser.email}</Text>
+              <Text style={styles.profileD}>Password: {loggedInUser.password}</Text> */}
+
+        {/* <View style={styles.btnView}>
+          <Button
+            color='#DE1F26'
+            title="Update"
+          />
+        </View> */}
+
+        
+    // borderColor: '#DE1F26',
+    // borderBottomWidth: 5,
+    // borderTopWidth: 5,
+    // borderRadius: 100
 
 for app.js from src
 

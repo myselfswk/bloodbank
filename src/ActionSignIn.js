@@ -5,7 +5,6 @@ import {
     StyleSheet,
     TextInput
 } from "react-native";
-import { CheckBox } from 'react-native-elements'
 import * as Animatable from 'react-native-animatable';
 import { TouchableOpacity } from "react-native-gesture-handler";
 import auth from '@react-native-firebase/auth';

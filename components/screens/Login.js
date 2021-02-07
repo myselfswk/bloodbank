@@ -5,7 +5,7 @@ import {
 import App from '../../src/App';
 
 const Login = (props) => {
-    console.log("Login: ",props);
+    // console.log("Login: ",props);
     return (
         <>
             <App navigationProp={props.navigation} />

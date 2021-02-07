@@ -12,15 +12,18 @@ export default class Profile extends React.Component {
     isData: false,
     loggedInUser: {},
   }
+  constructor(props){
+    super(props);
+  }
 
   signOutFunc = () => {
     auth()
       .signOut()
       .then(() => {
-        alert('User signed out!')
-        this.props.navigation.navigate('Login');
+        alert('User signed out!');
       });
-  }
+    this.props.navigation.navigate('Login');
+    }
 
 
   componentDidMount() {
@@ -28,8 +31,6 @@ export default class Profile extends React.Component {
     auth().onAuthStateChanged((user) => {
       if (user) {
         database().ref('users').once('value', (data) => {
-          console.log(data.val());
-
           setTimeout(() => {
             for (var key in data.val()) {
               if (data.val()[key].email === user.email) {
@@ -40,7 +41,6 @@ export default class Profile extends React.Component {
               }
             }
           }, 1000);
-
         })
       }
     })
@@ -49,7 +49,6 @@ export default class Profile extends React.Component {
 
   details = () => {
     const { user, isData, loggedInUser } = this.state;
-    // console.log(loggedInUser)
     return (
       isData ?
         <View>
@@ -84,24 +83,14 @@ export default class Profile extends React.Component {
               <Item rounded style={{ marginTop: 20, borderRadius: 10, borderRadius: 15,borderColor: '#DE1F26', borderWidth: 5 }}>
                 <Input style={{ color: 'red', backgroundColor: 'white', fontWeight: 'bold', fontSize: 20 }} value={loggedInUser.password}  />
               </Item>
-             <TouchableOpacity style={styles.btnView}>
+             <TouchableOpacity style={styles.btnView} onPress={() => this.signOutFunc()}>
                 <Text style={{color:'#fff',fontWeight:'bold',fontSize:20}}>
                   SIGN OUT
                 </Text>
               </TouchableOpacity>
-
-              {/* <Text style={styles.profileD}>Name: {loggedInUser.name}</Text>
-              <Text style={styles.profileD}>Email: {loggedInUser.email}</Text>
-              <Text style={styles.profileD}>Password: {loggedInUser.password}</Text> */}
             </View>
             : null}
         </View>
-        {/* <View style={styles.btnView}>
-          <Button
-            color='#DE1F26'
-            title="Update"
-          />
-        </View> */}
       </View>
     );
   }
@@ -125,10 +114,6 @@ var styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    // borderColor: '#DE1F26',
-    // borderBottomWidth: 5,
-    // borderTopWidth: 5,
-    // borderRadius: 100
     marginBottom:20,
   },
   tinyLogo: {
@@ -155,6 +140,5 @@ var styles = StyleSheet.create({
     marginTop: 20,
     backgroundColor: '#DE1F26',
     alignItems: 'center',
-    // justifyContent: 'center',
   },
 })

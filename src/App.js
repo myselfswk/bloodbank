@@ -17,7 +17,7 @@ export default class App extends React.Component{
     this.state={
       enable: true
     }
-    console.log("App: ",this.props.navigationProp);
+    // console.log("App: ",this.props.navigationProp);
   }
 
   tab(value){

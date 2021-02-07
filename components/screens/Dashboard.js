@@ -22,6 +22,7 @@ export default class Dashboard extends Component {
   };
 
   componentDidMount() {
+    // console.log();
     this.backHandler = BackHandler.addEventListener(
       "hardwareBackPress",
       this.backAction
@@ -34,17 +35,17 @@ export default class Dashboard extends Component {
         <StatusBar hidden = {false} backgroundColor = "#DE1F26" translucent = {true}/>
         <Container >
           <Tabs style={styles.tabStatusBar}>
-            <Tab tabStyle={false} heading={<TabHeading style={styles.tabDashboard}><Text style={styles.tabText}>Donors</Text></TabHeading>}>
+            <Tab tabStyle={{width: 100}} heading={<TabHeading style={styles.tabDashboard}><Text style={styles.tabText}>Donors</Text></TabHeading>}>
               <Donors />
             </Tab>
-            <Tab tabStyle={false} heading={<TabHeading style={styles.tabDashboard}><Text style={styles.tabText}>Donate</Text></TabHeading>}>
-              <Donate />
+            <Tab tabStyle={{width: 100}} heading={<TabHeading style={styles.tabDashboard}><Text style={styles.tabText}>Donate</Text></TabHeading>}>
+              <Donate navigation={this.props.navigation} />
             </Tab>
-            <Tab tabStyle={false} heading={<TabHeading style={styles.tabDashboard}><Text style={styles.tabText}>About US</Text></TabHeading>}>
+            <Tab tabStyle={{width: 100}} heading={<TabHeading style={styles.tabDashboard}><Text style={styles.tabText}>About US</Text></TabHeading>}>
               <AboutUs />
             </Tab>
-            <Tab tabStyle={{shadowColor:'grey'}} heading={<TabHeading style={styles.tabDashboard}><Text style={styles.tabText}>Profile</Text></TabHeading>}>
-              <Profile />
+            <Tab tabStyle={{width: 100}} heading={<TabHeading style={styles.tabDashboard}><Text style={styles.tabText}>Profile</Text></TabHeading>}>
+              <Profile navigation={this.props.navigation} />
             </Tab>
           </Tabs>
         </Container>

@@ -17,6 +17,7 @@ export default class Donors extends Component {
                 setTimeout(() => {
                     for (var key in data.val()) {
                         this.setState({
+                            ...this.state,
                             donors: [data.val()[key], ...this.state.donors],
                         })
                     }
@@ -25,6 +26,7 @@ export default class Donors extends Component {
                     })
                 }, 1000);
             })
+            this.setState({});
     }
 
     list = () => {
@@ -38,10 +40,22 @@ export default class Donors extends Component {
                             <Text style={{fontWeight: '700'}}>Name: </Text>
                             <Text>{donor.name} </Text>
                         </View>
-                        <Text>Age: {donor.age}</Text>
-                        <Text>Blood Group: {donor.bloodGroup}</Text>
-                        <Text>Location: {donor.location}</Text>
-                        <Text>Contact: {donor.contact}</Text>
+                        <View style={{ flexDirection: 'row' }}>
+                            <Text style={{fontWeight: '700'}}>Age: </Text>
+                            <Text>{donor.age} </Text>
+                        </View>
+                        <View style={{ flexDirection: 'row' }}>
+                            <Text style={{fontWeight: '700'}}>Blood Group: </Text>
+                            <Text>{donor.bloodGroup} </Text>
+                        </View>
+                        <View style={{ flexDirection: 'row' }}>
+                            <Text style={{fontWeight: '700'}}>Location: </Text>
+                            <Text>{donor.location} </Text>
+                        </View>
+                        <View style={{ flexDirection: 'row' }}>
+                            <Text style={{fontWeight: '700'}}>Contact: </Text>
+                            <Text>{donor.contact} </Text>
+                        </View>
                     </View>
                 );
             })
@@ -57,8 +71,8 @@ export default class Donors extends Component {
             <Container>
                 <View style={styles.donorView}>
                     <Text style={styles.heading}>Find A Donor</Text>
-                    <ScrollView>
-                        <Text style={styles.textView}>{this.list()}</Text>
+                    <ScrollView style={{width:'80%',height:'79%'}} >
+                        {this.list()}
                     </ScrollView>
                 </View>
             </Container>
@@ -78,14 +92,21 @@ var styles = StyleSheet.create({
     },
     heading: {
         fontSize: 35,
-        color: '#DE1F26'
+        color: '#DE1F26',
+        width:'100%',
+        textAlign:'center',
+        fontWeight:'700',
+        textTransform:'uppercase',
+        marginTop:'8%',
+        marginBottom:'5%'
     },
     cardView: {
-        width: 300,
+        marginTop:'2%',
+        alignItems:'flex-start',
+        width: '100%',
         padding: 15,
-        margin: 15,
-        borderBottomColor: '#DE1F26',
-        borderBottomWidth: 2,
+        borderColor: '#DE1F26',
+        borderWidth: 2,
     },
     textView: {
         paddingBottom: 40
