@@ -5,4 +5,4 @@
 https://drive.google.com/drive/u/0/folders/1uHZ-6p4VuNKfelq9UFVZ3R_ylr-gRZNx
 
 ## Note:
-Location tracking, Update Profile & picture upload feature coming soon
+Location tracking, Update Profile & picture upload feature "coming soon"
