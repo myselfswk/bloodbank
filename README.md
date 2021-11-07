@@ -1,6 +1,6 @@
 # bloodbank
- Blood Bank App Using React Native, Native Base, Navigation, Firebase, Redux, Animation and Location Tracking
-
+ Blood Bank App Using React Native, Native Base, Firebase, Redux & Animation
+ 
 ## Note:
 Future Updates: 
-Location tracking, Update Profile, Track User & picture upload feature
+Location tracking, Update Profile, Track User, Navigation, & picture upload feature
